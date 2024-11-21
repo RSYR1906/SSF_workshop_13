@@ -18,14 +18,27 @@
       }
       h1 {
         color: #ffffff;
+        margin-bottom: 30px;
       }
-      a {
+      .contact-box {
+        background-color: #1f1b24;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         color: #bb86fc;
         text-decoration: none;
+        display: block;
       }
-      a:hover {
-        text-decoration: underline;
+      .contact-box:hover {
+        background-color: #3700b3;
         color: #ffffff;
+      }
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px; /* Space between boxes */
       }
       .btn-primary {
         background-color: #1f1b24;
@@ -36,20 +49,23 @@
   </head>
   <body>
     <h1>Contact Links</h1>
-    <ul>
-      <li th:each="contact : ${contacts}">
+    <div class="contact-links">
+      <li th:each="contact : ${contacts}" class="col-md-3">
         <a
           th:href="@{/contacts/{id}(id=${contact.id})}"
+          class="contact-box"
           th:text="${contact.name}"
         ></a>
       </li>
-    </ul>
+    </div>
     <form action="/" method="get">
-      <input
-        class="btn btn-primary"
-        type="submit"
-        value="Back to Registration page"
-      />
+      <div class="d-flex justify-content-center mt-4">
+        <input
+          class="btn btn-primary"
+          type="submit"
+          value="Back to Registration page"
+        />
+      </div>
     </form>
   </body>
 </html>

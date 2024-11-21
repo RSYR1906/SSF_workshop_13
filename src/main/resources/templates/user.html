@@ -15,6 +15,7 @@
         height: 100vh;
         background-color: #121212;
         color: #e4e4e4;
+        margin: 0;
       }
       .details-container {
         background: #1f1b24;
@@ -23,17 +24,21 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         max-width: 500px;
         width: 100%;
+        text-align: center;
       }
       h1 {
-        text-align: center;
         color: #0d6efd; /* Bootstrap dark blue */
+        margin-bottom: 20px;
       }
       p {
         font-size: 1.1rem;
         margin-bottom: 10px;
       }
-      .btn {
-        margin-top: 10px;
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Adds spacing between buttons */
+        margin-top: 20px;
       }
     </style>
   </head>
@@ -50,14 +55,16 @@
           th:text="${#temporals.format(user.dateOfBirth, 'dd-MM-yyyy')}"
         ></span>
       </p>
-      <form action="/" method="get">
-        <input
-          class="btn btn-primary"
-          type="submit"
-          value="Back to Registration page"
-        />
-      </form>
-      <a href="/contacts/contactslist" class="btn btn-secondary">Contacts</a>
+      <div class="button-container">
+        <form action="/" method="get">
+          <input
+            class="btn btn-primary"
+            type="submit"
+            value="Back to Registration"
+          />
+        </form>
+        <a href="/contacts/contactslist" class="btn btn-secondary">Contacts</a>
+      </div>
     </div>
   </body>
 </html>
